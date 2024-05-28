@@ -21,3 +21,5 @@ target/
 # Misc
 .DS_Store
 .idea
+
+receipt*.json

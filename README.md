@@ -53,20 +53,11 @@ Now you have all the tools you need to develop and deploy an application with [R
 
 First, install the RISC Zero toolchain using the [instructions above](#dependencies).
 
-Now, you can initialize a new RISC Zero project at a location of your choosing:
+Update submodules with:
 
 ```sh
-forge init -t risc0/bonsai-foundry-template ./my-project
+git submodule update --init --recursive
 ```
-
-Congratulations! You've just started your first RISC Zero project.
-
-Your new project consists of:
-
-- a [zkVM program] (written in Rust), which specifies a computation that will be proven;
-- a [app contract] (written in Solidity), which uses the proven results;
-- a [publisher] which makes proving requests to [Bonsai] and posts the proof to Ethereum.
-  We provide an example implementation, but your dApp interface or application servers could act as the publisher.
 
 ### Build the Code
 
@@ -97,14 +88,6 @@ Your new project consists of:
   ```sh
   RISC0_DEV_MODE=true forge test -vvv 
   ```
-
-## Develop Your Application
-
-To build your application using the RISC Zero Foundry Template, you’ll need to make changes in three main areas:
-
--	***Guest Code***: Write the code you want proven in the [methods/guest](./methods/guest/) folder. This code runs off-chain within the RISC Zero zkVM and performs the actual computations. For example, the provided template includes a computation to check if a given number is even and generate a proof of this computation.
--	***Smart Contracts***: Write the on-chain part of your project in the [contracts](./contracts/) folder. The smart contract verifies zkVM proofs and updates the blockchain state based on the results of off-chain computations. For instance, in the [EvenNumber](./contracts/EvenNumber.sol) example, the smart contract verifies a proof that a number is even and stores that number on-chain if the proof is valid.
--	***Publisher Application***: Adjust the publisher example in the [apps](./apps/) folder. The publisher application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum.
 
 ### Configuring Bonsai
 
