@@ -10,34 +10,14 @@ path = "src/main.rs"
 [workspace]
 
 [dependencies]
-#alloy-primitives = { version = "0.7.4", default-features = false, features = ["rlp", "serde", "std"] }
-#alloy-sol-types = "0.7.4"
-risc0-zkvm = {  version = "0.21", default-features = false, features = ['std'] }
-#ark-bn254 = "0.4.0"
-#ark-ec = "0.4.0"
-#ark-serialize = "0.4.2"
-#ark-std = "0.4.0"
-# serde = { version = "1.0", features = ["derive"] }
-# arrayref = "0.3.6"
+risc0-zkvm = {  version = "1.0.2", default-features = false, features = ['std'] }
 
-#hex-literal = "0.4"
-#k256 = { version = "0.13.3", features = ["arithmetic", "serde", "expose-field", "std", "ecdsa"], default_features = false }
-#ed25519-dalek = "4"
 elliptic-curve = { version = "0.13", default-features = false, features = ["hazmat", "sec1"] }
 hex-literal = "0.4"
 ed25519-dalek = { git = "https://github.com/risc0/curve25519-dalek", tag = "curve25519-4.1.0-risczero.1", default-features = false }
 curve25519-dalek = { git = "https://github.com/risc0/curve25519-dalek", tag = "curve25519-4.1.0-risczero.1", default-features = false }
 
 sha2 = "0.10.6"
-
-#[patch.crates-io]
-# Placing these patch statement in the workspace Cargo.toml will add RISC Zero SHA-256 and bigint
-# multiplication accelerator support for all downstream usages of the following crates.
-#sha2 = { git = "https://github.com/risc0/RustCrypto-hashes", tag = "sha2-v0.10.6-risczero.0" }
-#ed25519-dalek = {git = "https://github.com/risc0/curve25519-dalek", tag = "curve25519-4.1.2-risczero.0"}
-#k256 = { git = "https://github.com/risc0/RustCrypto-elliptic-curves", tag = "k256/v0.13.1-risczero.1"  }
-#crypto-bigint = { git = "https://github.com/risc0/RustCrypto-crypto-bigint", tag = "v0.5.2-risczero.0" }
-
 
 [patch.crates-io.crypto-bigint]
 git = "https://github.com/risc0/RustCrypto-crypto-bigint"
